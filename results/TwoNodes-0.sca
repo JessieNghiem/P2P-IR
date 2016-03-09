@@ -1,0 +1,151 @@
+version 2
+run TwoNodes-0-20160309-14:48:46-14198
+attr configname TwoNodes
+attr datetime 20160309-14:48:46
+attr experiment TwoNodes
+attr inifile omnetpp.ini
+attr iterationvars $0=0
+attr iterationvars2 "$0=0, $repetition=0"
+attr measurement $0=0
+attr network P2P_Wireless_Wifi
+attr processid 14198
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar P2P_Wireless_Wifi.node[0].nic.phy 	nbFramesWithInterference 	0
+scalar P2P_Wireless_Wifi.node[0].nic.phy 	nbFramesWithoutInterference 	532
+scalar P2P_Wireless_Wifi.node[0].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar P2P_Wireless_Wifi.node[0].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar P2P_Wireless_Wifi.node[0].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar P2P_Wireless_Wifi.node[0].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar P2P_Wireless_Wifi.node[0].appl 	queryScoreProcessingTime:mean 	0
+attr interpolationmode  none
+attr source  scoreFinish
+attr title  "query score processing time, mean"
+scalar P2P_Wireless_Wifi.node[0].appl 	querySuccessfulRate:last 	1
+attr interpolationmode  none
+attr source  roundFinish
+attr title  "QueryRate, last"
+scalar P2P_Wireless_Wifi.node[0].appl 	queryReplyNumber:last 	42
+attr source  queryReply
+attr title  "queryReplyNumber, last"
+scalar P2P_Wireless_Wifi.node[0].appl 	querySendNumber:last 	42
+attr source  querySend
+attr title  "querySendNumber, last"
+scalar P2P_Wireless_Wifi.node[0].appl 	querySendRoundNumber:last 	305
+attr source  querySendRound
+attr title  "querySendRoundNumber, last"
+scalar P2P_Wireless_Wifi.node[0].appl 	beaconReceiveNumber:last 	81
+attr source  beaconReceive
+attr title  "beaconReceiveNumber, last"
+scalar P2P_Wireless_Wifi.node[0].appl 	beaconSendNumber:last 	81
+attr source  beaconSend
+attr title  "beaconSendNumber, last"
+scalar P2P_Wireless_Wifi.node[0].appl 	latency:mean 	0.0012930487804878
+attr interpolationmode  none
+attr source  reply
+attr title  "laytency, mean"
+scalar P2P_Wireless_Wifi.node[0].appl 	queryTime:mean 	0.003308
+attr interpolationmode  none
+attr source  queryFinish
+attr title  "query time, mean"
+scalar P2P_Wireless_Wifi.node[0].appl 	processingTime:mean 	0.00514
+attr interpolationmode  none
+attr source  finish
+attr title  "query processing time, mean"
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	nominal 	11880000
+attr unit  mW-s
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	total 	10079972.867088
+attr unit  mW-s
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	lifetime 	-1
+attr unit  s
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"Mean power consumption" 	16799.95477848
+attr unit  mW
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"num devices" 	1
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"physical layer" 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"device total (mWs)" 	359972.867088
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	account 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"energy (mWs)" 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"time (s)" 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	account 	1
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"energy (mWs)" 	359884.5408
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"time (s)" 	599.807568
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	account 	2
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"energy (mWs)" 	88.326288
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"time (s)" 	0.192432
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	account 	3
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"energy (mWs)" 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"time (s)" 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	account 	4
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"energy (mWs)" 	0
+scalar P2P_Wireless_Wifi.node[0].batteryStats 	"time (s)" 	0
+scalar P2P_Wireless_Wifi.node[1].nic.phy 	nbFramesWithInterference 	0
+scalar P2P_Wireless_Wifi.node[1].nic.phy 	nbFramesWithoutInterference 	534
+scalar P2P_Wireless_Wifi.node[1].nic.phy 	nbFramesWithInterferencePartial 	0
+scalar P2P_Wireless_Wifi.node[1].nic.phy 	nbFramesWithoutInterferencePartial 	0
+scalar P2P_Wireless_Wifi.node[1].nic.phy 	nbFramesWithInterferenceDropped 	0
+scalar P2P_Wireless_Wifi.node[1].nic.phy 	nbFramesWithoutInterferenceDropped 	0
+scalar P2P_Wireless_Wifi.node[1].appl 	queryScoreProcessingTime:mean 	0
+attr interpolationmode  none
+attr source  scoreFinish
+attr title  "query score processing time, mean"
+scalar P2P_Wireless_Wifi.node[1].appl 	querySuccessfulRate:last 	1
+attr interpolationmode  none
+attr source  roundFinish
+attr title  "QueryRate, last"
+scalar P2P_Wireless_Wifi.node[1].appl 	queryReplyNumber:last 	40
+attr source  queryReply
+attr title  "queryReplyNumber, last"
+scalar P2P_Wireless_Wifi.node[1].appl 	querySendNumber:last 	40
+attr source  querySend
+attr title  "querySendNumber, last"
+scalar P2P_Wireless_Wifi.node[1].appl 	querySendRoundNumber:last 	292
+attr source  querySendRound
+attr title  "querySendRoundNumber, last"
+scalar P2P_Wireless_Wifi.node[1].appl 	beaconReceiveNumber:last 	82
+attr source  beaconReceive
+attr title  "beaconReceiveNumber, last"
+scalar P2P_Wireless_Wifi.node[1].appl 	beaconSendNumber:last 	82
+attr source  beaconSend
+attr title  "beaconSendNumber, last"
+scalar P2P_Wireless_Wifi.node[1].appl 	latency:mean 	0.0012729268292683
+attr interpolationmode  none
+attr source  reply
+attr title  "laytency, mean"
+scalar P2P_Wireless_Wifi.node[1].appl 	queryTime:mean 	0.0032915
+attr interpolationmode  none
+attr source  queryFinish
+attr title  "query time, mean"
+scalar P2P_Wireless_Wifi.node[1].appl 	processingTime:mean 	0.0051235
+attr interpolationmode  none
+attr source  finish
+attr title  "query processing time, mean"
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	nominal 	11880000
+attr unit  mW-s
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	total 	10079972.930256
+attr unit  mW-s
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	lifetime 	-1
+attr unit  s
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"Mean power consumption" 	16799.95488376
+attr unit  mW
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"num devices" 	1
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"physical layer" 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"device total (mWs)" 	359972.930256
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	account 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"energy (mWs)" 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"time (s)" 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	account 	1
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"energy (mWs)" 	359884.8096
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"time (s)" 	599.808016
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	account 	2
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"energy (mWs)" 	88.120656
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"time (s)" 	0.191984
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	account 	3
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"energy (mWs)" 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"time (s)" 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	account 	4
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"energy (mWs)" 	0
+scalar P2P_Wireless_Wifi.node[1].batteryStats 	"time (s)" 	0
