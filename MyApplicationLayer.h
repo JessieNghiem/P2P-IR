@@ -115,6 +115,7 @@ private:
 	QueryScore *score;
     // Output file
     std::fstream oResult;   // For query reply
+    std::fstream oObjectResult; //just get the object ID
     std::fstream oKeywords; // For query keywords
 
 protected:

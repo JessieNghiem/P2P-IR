@@ -62,6 +62,7 @@ MyApplicationLayer::~MyApplicationLayer() {
     }
     oResult.close();
     oKeywords.close();
+    oObjectResult.close();
 }
 
 void MyApplicationLayer::initialize(int stage) {
@@ -138,7 +139,7 @@ void MyApplicationLayer::initialize(int stage) {
         string lexiconPath = MAIN_INDEXING_PATH + std::to_string(node_id)
                 + "/lexicon";
         string documentMapPath = MAIN_INDEXING_PATH
-                + std::to_string(node_id) + "/map";
+                + std::to_string(node_id) + "/map.txt";
         string invertedListPath = MAIN_INDEXING_PATH
                 + std::to_string(node_id) + "/ivlist";
         string jsonFilePath = REVIEW_JSON_DATASET
@@ -178,10 +179,16 @@ void MyApplicationLayer::initialize(int stage) {
         // Initial output file
         score = new QueryScore(lexiconPath, documentMapPath, invertedListPath,
                 jsonFilePath);
+        string resultFolder = QUERY_RESULT_PATH + std::to_string(node_id);
+        mkdir(resultFolder.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
         oResult.open(
                 QUERY_RESULT_PATH + std::to_string(node_id) + "/results_r"
                         + ev.getConfig()->getConfigValue("seed-set"),
                 std::fstream::out);
+        oObjectResult.open(
+                        QUERY_RESULT_PATH + std::to_string(node_id) + "/objectresults_r"
+                                + ev.getConfig()->getConfigValue("seed-set"),
+                        std::fstream::out);
         oKeywords.open(
                 QUERY_RESULT_PATH + std::to_string(node_id) + "/keywords_r"
                         + ev.getConfig()->getConfigValue("seed-set"),
@@ -214,6 +221,8 @@ void MyApplicationLayer::handleQueryExpiredTimer() {
     if (numSendPackage != 0) {
         oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                 << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+        oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                        << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
         double querySuccessfulRate = numReceivePackage / numSendPackage;
         emit(roundFinish, querySuccessfulRate);
 
@@ -477,6 +486,8 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
                 << " longitude: " << it->businessLocation.x << std::endl;
         oResult << "*******************end*******************" << std::endl
                 << std::endl;
+
+        oObjectResult <<it->businessId<< std::endl;
         cnt++;
     }
     EV << "**********************Query reply results finish******************"
@@ -496,6 +507,10 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
 
             oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                     << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
+            oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
             if (queryExpiredTimer) {
                 cancelAndDelete(queryExpiredTimer); // Existed previous timer, cancle and delete because receive one beacon reply message
                 queryExpiredTimer = NULL;   // Restore pointer to null
@@ -530,6 +545,10 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
 
             oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                     << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
+            oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
             if (queryExpiredTimer) {
                 cancelAndDelete(queryExpiredTimer); // Existed previous timer, cancle and delete because receive one beacon reply message
                 queryExpiredTimer = NULL;   // Restore pointer to null

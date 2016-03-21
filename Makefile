@@ -32,6 +32,8 @@ INCLUDE_PATH = \
     -IMAIN_INDEXING_PATH0 \
     -IMAIN_INDEXING_PATH1 \
     -IQueryResults \
+    -IQueryResults/0 \
+    -IQueryResults/1 \
     -Iinput \
     -Iinput/datafile \
     -Iinput/index \
@@ -152,6 +154,8 @@ clean:
 	$(Q)-rm -f MAIN_INDEXING_PATH0/*_m.cc MAIN_INDEXING_PATH0/*_m.h
 	$(Q)-rm -f MAIN_INDEXING_PATH1/*_m.cc MAIN_INDEXING_PATH1/*_m.h
 	$(Q)-rm -f QueryResults/*_m.cc QueryResults/*_m.h
+	$(Q)-rm -f QueryResults/0/*_m.cc QueryResults/0/*_m.h
+	$(Q)-rm -f QueryResults/1/*_m.cc QueryResults/1/*_m.h
 	$(Q)-rm -f input/*_m.cc input/*_m.h
 	$(Q)-rm -f input/datafile/*_m.cc input/datafile/*_m.h
 	$(Q)-rm -f input/index/*_m.cc input/index/*_m.h
@@ -165,7 +169,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc MAIN_INDEXING_PATH0/*.cc MAIN_INDEXING_PATH1/*.cc QueryResults/*.cc input/*.cc input/datafile/*.cc input/index/*.cc input/index/0/*.cc input/index/1/*.cc json/*.cc results/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc MAIN_INDEXING_PATH0/*.cc MAIN_INDEXING_PATH1/*.cc QueryResults/*.cc QueryResults/0/*.cc QueryResults/1/*.cc input/*.cc input/datafile/*.cc input/index/*.cc input/index/0/*.cc input/index/1/*.cc json/*.cc results/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/BeaconReply_m.o: BeaconReply_m.cc \
