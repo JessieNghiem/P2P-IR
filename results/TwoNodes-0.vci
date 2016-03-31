@@ -1,15 +1,15 @@
-file 31725 1458559862                                           
+file 31725 1459296510                                           
 version 2
-run TwoNodes-0-20160321-22:31:00-12377
+run TwoNodes-0-20160330-11:08:23-23503
 attr configname TwoNodes
-attr datetime 20160321-22:31:00
+attr datetime 20160330-11:08:23
 attr experiment TwoNodes
 attr inifile omnetpp.ini
 attr iterationvars $0=0
 attr iterationvars2 "$0=0, $repetition=0"
 attr measurement $0=0
 attr network P2P_Wireless_Wifi
-attr processid 12377
+attr processid 23503
 attr repetition 0
 attr replication #0
 attr resultdir results

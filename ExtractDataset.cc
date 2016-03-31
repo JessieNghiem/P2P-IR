@@ -12,6 +12,10 @@
 
 #include "ExtractDataset.h"
 #include "json/json.h"
+#include "cqueue.h"
+#include <queue>
+#include "reviewjson.h"
+#include <iostream>
 
 
 int ExtractDataset::readDataset(std::string input, std::string output){
@@ -100,3 +104,114 @@ int ExtractDataset::readDataset(std::string input, std::string output){
     writeJsonFile.close();
     return 0;
 }
+
+/*void ExtractDataset::setPCoord(Coord pLoc) {
+    p = pLoc;
+}
+
+Coord ExtractDataset::getPCoord() {
+    return p;
+}*/
+
+Coord ExtractDataset::p;
+
+int ExtractDataset::extractKNN(int k, std::string input, std::string output, Coord pLoc) {
+    ExtractDataset::p = pLoc;
+    Json::Value root;
+    Json::Reader reader;
+    Json::FastWriter writer;
+
+    std::ifstream readJsonFile(input, std::ifstream::binary);
+    std::ofstream writeJsonFile(output, std::ofstream::binary);
+
+    std::string cur_line;
+
+    cQueue objectData; //object is an instance of reviewjson class
+    objectData.setup(&distanceComp); //priority queue sorted by the distance to the moving object
+
+
+    int cnt = 0;
+    double maxDis = 0;
+
+    bool success;
+
+    std::getline(readJsonFile, cur_line);
+    success = reader.parse(cur_line, root, false); //read the first line
+    if(success) {
+        Coord loc(root["longitude"].asDouble(), root["latitude"].asDouble());
+        maxDis = loc.distance(pLoc);
+        cnt++;
+        objectData.insert(reviewjson(root).dup());
+    }
+
+    std::getline(readJsonFile, cur_line);
+    success = reader.parse(cur_line, root, false); //read the next line
+    while(success) {
+        Coord loc(root["longitude"].asDouble(), root["latitude"].asDouble());
+        double curDis = loc.distance(pLoc);
+        if (cnt < k) { //if queue still has space
+           objectData.insert(reviewjson(root).dup());
+           cnt++;
+           if (curDis > maxDis) maxDis = curDis;
+        }
+        else if (curDis < maxDis){ //if the queue is full, do replacement
+            objectData.pop();
+            objectData.insert(reviewjson(root).dup());
+            //number of object does not change
+        }
+
+        std::getline(readJsonFile, cur_line);
+        success = reader.parse(cur_line, root, false); //read the next line
+    }
+
+//loop through the queue to write to json file
+    cQueue::Iterator it(objectData,0);//intialize iterator for Neighbor table
+            //it.init(GNNs, 0);
+
+    EV<<"distance in the extract file"<<endl;
+    while(!it.end())//iterate thru the queue
+    {
+        reviewjson* review = (reviewjson*)(cObject*)it();
+        //for testing
+        Json::Value root = review->getRoot();
+        Coord loc(root["longitude"].asDouble(), root["latitude"].asDouble());
+
+        double curDis = loc.distance(pLoc);
+        EV<<curDis<<endl;
+
+        writeJsonFile<<writer.write(review->getRoot());
+        it++;//move iterator to next table element
+    }
+
+    readJsonFile.close();
+    writeJsonFile.close();
+    return 0;
+
+}
+
+
+int ExtractDataset::distanceComp(cObject* one, cObject* another)
+{
+    reviewjson* object1 = static_cast<reviewjson*>(one);
+    reviewjson* object2 = static_cast<reviewjson*>(another);
+
+    Json::Value root1 = object1->getRoot();
+    Json::Value root2 = object2->getRoot();
+
+    Coord businessCoord1(root1["longitude"].asDouble(),
+                    root1["latitude"].asDouble());
+
+    Coord businessCoord2(root2["longitude"].asDouble(),
+                        root2["latitude"].asDouble());
+
+    double d1 = businessCoord1.distance(ExtractDataset::p);
+    double d2 = businessCoord2.distance(ExtractDataset::p);
+
+    if (d1 > d2)
+        return 1;
+    else if (d1 == d2)
+        return 0;
+    else
+        return -1;
+}
+

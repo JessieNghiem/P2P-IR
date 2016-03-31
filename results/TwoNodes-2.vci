@@ -1,15 +1,15 @@
-file 32929 1457494662                                           
+file 32211 1459246082                                           
 version 2
-run TwoNodes-2-20160309-14:37:40-13743
+run TwoNodes-2-20160329-21:08:02-15766
 attr configname TwoNodes
-attr datetime 20160309-14:37:40
+attr datetime 20160329-21:08:02
 attr experiment TwoNodes
 attr inifile omnetpp.ini
 attr iterationvars $0=0
 attr iterationvars2 "$0=0, $repetition=2"
 attr measurement $0=0
 attr network P2P_Wireless_Wifi
-attr processid 13743
+attr processid 15766
 attr repetition 2
 attr replication #2
 attr resultdir results
@@ -20,5 +20,5 @@ vector 30  P2P_Wireless_Wifi.node[0].batteryStats  capacity  ETV
 attr unit  mW-s
 vector 37  P2P_Wireless_Wifi.node[1].batteryStats  capacity  ETV
 attr unit  mW-s
-30	552 16169 0 17115 0 599 601 1800627.132912 2160000 1190348148.1159 2.3641297157703e+15
-37	16721 16208 0 17116 0 599 601 1800627.069744 2160000 1190348094.8337 2.3641295104374e+15
+30	552 15796 0 7614 0 599 601 1800609.916248 2160000 1190342930.2513 2.3641096787956e+15
+37	16348 15863 0 7615 0 599 601 1800610.08432 2160000 1190343030.3382 2.3641100749311e+15

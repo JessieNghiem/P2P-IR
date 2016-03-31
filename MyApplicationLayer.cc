@@ -82,7 +82,7 @@ void MyApplicationLayer::initialize(int stage) {
         // Initial beacon message rules
         querySendRounds = 0;
         if (queryNodeNumber < INITIAL_BEACON_NODES_NUMBER) { // Still have node to send beacon message
-            // Initilistion for query rounds
+            // Initialisation for query rounds
             lamda = par("lamda");   // Set lamda parameter for poisson function
             // Get sim_time_limit value from ini file
             const char *s = ev.getConfig()->getConfigValue("sim-time-limit");
@@ -132,10 +132,16 @@ void MyApplicationLayer::initialize(int stage) {
         numSendPackage = 0;
         numReceivePackage = 0;
 
-
         // Set indexing file path
         //std::string dataPath = MAIN_INDEXING_PATH + std::to_string(node_id)
          //               + "/datafile";
+
+
+        // add checking whether the folder for this node exist
+        //if there is no datafile, extract datafile
+
+
+    } else if (stage == 1) {
         string lexiconPath = MAIN_INDEXING_PATH + std::to_string(node_id)
                 + "/lexicon";
         string documentMapPath = MAIN_INDEXING_PATH
@@ -144,56 +150,60 @@ void MyApplicationLayer::initialize(int stage) {
                 + std::to_string(node_id) + "/ivlist";
         string jsonFilePath = REVIEW_JSON_DATASET
                 + std::to_string(node_id);
-
-        // add checking whether the folder for this node exist
-        //if there is no datafile, extract datafile
         ExtractDataset extractMessage;
 
-        if (!std::ifstream(jsonFilePath)) {//if local datafile does not exist create the folder and generate the extracted file
-            extractMessage.readDataset(DATA_PATH, jsonFilePath); //extract data from the main file in DATA_PATH
-            //extractMessage.readDataset("./input/datafile/Sub_of_Ports_in_Las_Vegas_new.txt", "./input/datafile/" + std::to_string(node_id));
-        }
+                //if (!std::ifstream(jsonFilePath)) {//if local datafile does not exist create the folder and generate the extracted file
+                //    extractMessage.readDataset(DATA_PATH, jsonFilePath); //extract data from the main file in DATA_PATH
+                //    extractMessage.readDataset("./input/datafile/Sub_of_Ports_in_Las_Vegas_new.txt", "./input/datafile/" + std::to_string(node_id));
+                //}
 
-        // if there is no index file, create index files
-        if (!(std::ifstream(lexiconPath) && std::ifstream(documentMapPath) && std::ifstream(invertedListPath))) {//index file does not exist
-            string indexFolder = MAIN_INDEXING_PATH + std::to_string(node_id);
-            WATCH(indexFolder);
-            //cout<<indexFolder;
-            mkdir(indexFolder.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-            //system("mkdir " + indexFolder);
+                //extract k review from
+                //if (!std::ifstream(jsonFilePath)) {
+                    Coord curPos = (FindModule<LinearMobility*>::findSubModule(getParentModule())->getCurrentPosition());
+                    extractMessage.extractKNN(MAX_CACHED_REVIEW, DATA_PATH, jsonFilePath, curPos);
+                //}
 
-            IndexDataset indexDataset;
-            indexDataset.readStopList(STOP_LIST_PATH);
-            cout<<indexDataset.stopList.size()<<endl;
+                // if there is no index file, create index files
+                //if (!(std::ifstream(lexiconPath) && std::ifstream(documentMapPath) && std::ifstream(invertedListPath))) {//index file does not exist
+                    string indexFolder = MAIN_INDEXING_PATH + std::to_string(node_id);
+                    WATCH(indexFolder);
+                    //cout<<indexFolder;
+                    mkdir(indexFolder.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+                    //system("mkdir " + indexFolder);
 
-            std::map<unsigned int, Document> docMap;
+                    IndexDataset indexDataset;
+                    indexDataset.readStopList(STOP_LIST_PATH);
+                    cout<<indexDataset.stopList.size()<<endl;
 
-            //string path("./input/datafile/new_random_new");
-            Index* index = new Index();
-            indexDataset.createTermIndex(jsonFilePath, index, docMap);
-            indexDataset.writeFile(index->lexicon, docMap, lexiconPath, invertedListPath, documentMapPath);
-            docMap.clear();
-            delete index;
-        }
+                    std::map<unsigned int, Document> docMap;
 
-        // Initial output file
-        score = new QueryScore(lexiconPath, documentMapPath, invertedListPath,
-                jsonFilePath);
-        string resultFolder = QUERY_RESULT_PATH + std::to_string(node_id);
-        mkdir(resultFolder.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-        oResult.open(
-                QUERY_RESULT_PATH + std::to_string(node_id) + "/results_r"
-                        + ev.getConfig()->getConfigValue("seed-set"),
-                std::fstream::out);
-        oObjectResult.open(
-                        QUERY_RESULT_PATH + std::to_string(node_id) + "/objectresults_r"
+                    //string path("./input/datafile/new_random_new");
+                    Index* index = new Index();
+                    indexDataset.createTermIndex(jsonFilePath, index, docMap);
+                    indexDataset.writeFile(index->lexicon, docMap, lexiconPath, invertedListPath, documentMapPath);
+                    docMap.clear();
+                    delete index;
+                //}
+
+                // Initial output file
+                score = new QueryScore(lexiconPath, documentMapPath, invertedListPath,
+                        jsonFilePath);
+                string resultFolder = QUERY_RESULT_PATH + std::to_string(node_id);
+                mkdir(resultFolder.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+                oResult.open(
+                        QUERY_RESULT_PATH + std::to_string(node_id) + "/results_r"
                                 + ev.getConfig()->getConfigValue("seed-set"),
                         std::fstream::out);
-        oKeywords.open(
-                QUERY_RESULT_PATH + std::to_string(node_id) + "/keywords_r"
-                        + ev.getConfig()->getConfigValue("seed-set"),
-                std::fstream::out);
-    } else if (stage == 1) {
+                oObjectResult.open(
+                                QUERY_RESULT_PATH + std::to_string(node_id) + "/objectresults_r"
+                                        + ev.getConfig()->getConfigValue("seed-set"),
+                                std::fstream::out);
+                oKeywords.open(
+                        QUERY_RESULT_PATH + std::to_string(node_id) + "/keywords_r"
+                                + ev.getConfig()->getConfigValue("seed-set"),
+                        std::fstream::out);
+
+
         emit(querySendRound, queryTimes);
         //scheduleAt(simTime() + dblrand() * 10, delayTimer);
     }

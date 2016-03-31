@@ -13,6 +13,7 @@
 #include <map>
 
 #include "Business.h"
+#include "Coord.h"
 
 class ExtractDataset {
 public:
@@ -24,6 +25,12 @@ public:
     std::vector<Business> businessList;
 
     int readDataset(std::string input, std::string output);
+    int extractKNN(int k, std::string input, std::string output, Coord p);
+    //static void setPCoord(Coord pLoc);
+    static int distanceComp(cObject* one, cObject* another);
+    //static Coord getPCoord();
+
+    static Coord p; //position of the moving peer
 };
 
 
