@@ -63,6 +63,7 @@ MyApplicationLayer::~MyApplicationLayer() {
     oResult.close();
     oKeywords.close();
     oObjectResult.close();
+    oReview.close();
 }
 
 void MyApplicationLayer::initialize(int stage) {
@@ -194,6 +195,10 @@ void MyApplicationLayer::initialize(int stage) {
                         QUERY_RESULT_PATH + std::to_string(node_id) + "/results_r"
                                 + ev.getConfig()->getConfigValue("seed-set"),
                         std::fstream::out);
+                oReview.open(
+                                        QUERY_RESULT_PATH + std::to_string(node_id) + "/reviews_r"
+                                                + ev.getConfig()->getConfigValue("seed-set"),
+                                        std::fstream::out);
                 oObjectResult.open(
                                 QUERY_RESULT_PATH + std::to_string(node_id) + "/objectresults_r"
                                         + ev.getConfig()->getConfigValue("seed-set"),
@@ -231,8 +236,11 @@ void MyApplicationLayer::handleQueryExpiredTimer() {
     if (numSendPackage != 0) {
         oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                 << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
-        oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+        /*if (querySendRounds == 1) {
+            oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                         << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+        }*/
+
         double querySuccessfulRate = numReceivePackage / numSendPackage;
         emit(roundFinish, querySuccessfulRate);
 
@@ -494,10 +502,15 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
         oResult << "Business address: " << it->businessAddress << std::endl;
         oResult << "Business location latitude: " << it->businessLocation.y
                 << " longitude: " << it->businessLocation.x << std::endl;
+        oResult << "Hash value: " << it->hashValue << std::endl;
         oResult << "*******************end*******************" << std::endl
                 << std::endl;
 
-        oObjectResult <<it->businessId<< std::endl;
+        if (querySendRounds == 1) {
+            oObjectResult <<it->businessId<< std::endl;
+            oReview <<it->hashValue<< std::endl;
+        }
+
         cnt++;
     }
     EV << "**********************Query reply results finish******************"
@@ -518,8 +531,10 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                     << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
 
-            oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+            /*if (querySendRounds == 1) {
+                oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                                 << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+            }*/
 
             if (queryExpiredTimer) {
                 cancelAndDelete(queryExpiredTimer); // Existed previous timer, cancle and delete because receive one beacon reply message
@@ -556,8 +571,9 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                     << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
 
+            /*if (querySendRounds == 1)
             oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
-                                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+                                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;*/
 
             if (queryExpiredTimer) {
                 cancelAndDelete(queryExpiredTimer); // Existed previous timer, cancle and delete because receive one beacon reply message

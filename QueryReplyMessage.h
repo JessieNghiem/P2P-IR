@@ -22,6 +22,7 @@ typedef struct queryReplyMessage {
     double rate;
     std::string textReview;
     double score;   // The score of this business, according to ranking algorithm
+    std::string hashValue;
 } QueryReplyMessage;
 
 

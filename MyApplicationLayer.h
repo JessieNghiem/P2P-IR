@@ -117,6 +117,7 @@ private:
     std::fstream oResult;   // For query reply
     std::fstream oObjectResult; //just get the object ID
     std::fstream oKeywords; // For query keywords
+    std::fstream oReview;
 
 protected:
     /** @brief Timer message for scheduling next message.*/
