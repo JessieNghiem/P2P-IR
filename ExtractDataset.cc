@@ -67,7 +67,7 @@ int ExtractDataset::readDataset(std::string input, std::string output){
             std::hash<std::string> str_hash;
             root["hash_value"] = (unsigned int)str_hash(hash_string);
 
-            std::cout<<"content to write" << root.toStyledString();
+            //std::cout<<"content to write" << root.toStyledString();
             //writer.write(writeJsonFile, root);
             writeJsonFile<<writer.write(root);
 			if(min_longitude == 0)
@@ -98,8 +98,8 @@ int ExtractDataset::readDataset(std::string input, std::string output){
 			}
 	}
     } while (success);
-	std::cout<<"min_longitude: "<<min_longitude<<" max_longitude: "<<max_longitude<<std::endl;
-	std::cout<<"min_latitude: "<<min_latitude<<" max_latitude"<<max_latitude<<std::endl;	
+	//std::cout<<"min_longitude: "<<min_longitude<<" max_longitude: "<<max_longitude<<std::endl;
+	//std::cout<<"min_latitude: "<<min_latitude<<" max_latitude"<<max_latitude<<std::endl;
     readJsonFile.close();
     writeJsonFile.close();
     return 0;
@@ -168,7 +168,7 @@ int ExtractDataset::extractKNN(int k, std::string input, std::string output, Coo
     cQueue::Iterator it(objectData,0);//intialize iterator for Neighbor table
             //it.init(GNNs, 0);
 
-    EV<<"distance in the extract file"<<endl;
+    //EV<<"distance in the extract file"<<endl;
     while(!it.end())//iterate thru the queue
     {
         reviewjson* review = (reviewjson*)(cObject*)it();
@@ -177,7 +177,7 @@ int ExtractDataset::extractKNN(int k, std::string input, std::string output, Coo
         Coord loc(root["longitude"].asDouble(), root["latitude"].asDouble());
 
         double curDis = loc.distance(pLoc);
-        EV<<curDis<<endl;
+        //EV<<curDis<<endl;
 
         writeJsonFile<<writer.write(review->getRoot());
         it++;//move iterator to next table element

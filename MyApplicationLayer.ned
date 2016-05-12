@@ -62,6 +62,7 @@ simple MyApplicationLayer like IBaseApplLayer
         //double longitude;	// Longitude of the node
         //double latitude;	// Latitude of the node
         double lamda;	// Parameter for poisson formula
+        int cacheSize;
 		//int node_id;	// Node id
         // string businessId;	// The id of query business, this is for first stage test
 

@@ -1,0 +1,21 @@
+                                                                
+version 2
+run test-0-20160512-10:04:48-14510
+attr configname test
+attr datetime 20160512-10:04:48
+attr experiment test
+attr inifile omnetpp.ini
+attr iterationvars "$0=45, $1=0"
+attr iterationvars2 "$0=45, $1=0, $repetition=0"
+attr measurement "$0=45, $1=0"
+attr network P2P_Wireless_Wifi
+attr processid 14510
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 2  P2P_Wireless_Wifi.node[0].batteryStats  capacity  ETV
+attr unit  mW-s
+2	483 14 0 0 0 0 1 2160000 2160000 2160000 4665600000000

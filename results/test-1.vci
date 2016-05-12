@@ -1,0 +1,1170 @@
+                                                                
+version 2
+run test-1-20160512-10:04:48-14509
+attr configname test
+attr datetime 20160512-10:04:48
+attr experiment test
+attr inifile omnetpp.ini
+attr iterationvars "$0=45*2, $1=0"
+attr iterationvars2 "$0=45*2, $1=0, $repetition=0"
+attr measurement "$0=45*2, $1=0"
+attr network P2P_Wireless_Wifi
+attr processid 14509
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 1
+attr seedset 0
+
+vector 2  P2P_Wireless_Wifi.node[0].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 9  P2P_Wireless_Wifi.node[1].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 16  P2P_Wireless_Wifi.node[2].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 23  P2P_Wireless_Wifi.node[3].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 30  P2P_Wireless_Wifi.node[4].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 37  P2P_Wireless_Wifi.node[5].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 44  P2P_Wireless_Wifi.node[6].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 51  P2P_Wireless_Wifi.node[7].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 58  P2P_Wireless_Wifi.node[8].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 65  P2P_Wireless_Wifi.node[9].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 72  P2P_Wireless_Wifi.node[10].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 79  P2P_Wireless_Wifi.node[11].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 86  P2P_Wireless_Wifi.node[12].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 93  P2P_Wireless_Wifi.node[13].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 100  P2P_Wireless_Wifi.node[14].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 107  P2P_Wireless_Wifi.node[15].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 114  P2P_Wireless_Wifi.node[16].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 121  P2P_Wireless_Wifi.node[17].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 128  P2P_Wireless_Wifi.node[18].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 135  P2P_Wireless_Wifi.node[19].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 142  P2P_Wireless_Wifi.node[20].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 149  P2P_Wireless_Wifi.node[21].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 156  P2P_Wireless_Wifi.node[22].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 163  P2P_Wireless_Wifi.node[23].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 170  P2P_Wireless_Wifi.node[24].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 177  P2P_Wireless_Wifi.node[25].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 184  P2P_Wireless_Wifi.node[26].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 191  P2P_Wireless_Wifi.node[27].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 198  P2P_Wireless_Wifi.node[28].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 205  P2P_Wireless_Wifi.node[29].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 212  P2P_Wireless_Wifi.node[30].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 219  P2P_Wireless_Wifi.node[31].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 226  P2P_Wireless_Wifi.node[32].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 233  P2P_Wireless_Wifi.node[33].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 240  P2P_Wireless_Wifi.node[34].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 247  P2P_Wireless_Wifi.node[35].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 254  P2P_Wireless_Wifi.node[36].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 261  P2P_Wireless_Wifi.node[37].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 268  P2P_Wireless_Wifi.node[38].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 275  P2P_Wireless_Wifi.node[39].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 282  P2P_Wireless_Wifi.node[40].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 289  P2P_Wireless_Wifi.node[41].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 296  P2P_Wireless_Wifi.node[42].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 303  P2P_Wireless_Wifi.node[43].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 310  P2P_Wireless_Wifi.node[44].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 317  P2P_Wireless_Wifi.node[45].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 324  P2P_Wireless_Wifi.node[46].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 331  P2P_Wireless_Wifi.node[47].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 338  P2P_Wireless_Wifi.node[48].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 345  P2P_Wireless_Wifi.node[49].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 352  P2P_Wireless_Wifi.node[50].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 359  P2P_Wireless_Wifi.node[51].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 366  P2P_Wireless_Wifi.node[52].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 373  P2P_Wireless_Wifi.node[53].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 380  P2P_Wireless_Wifi.node[54].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 387  P2P_Wireless_Wifi.node[55].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 394  P2P_Wireless_Wifi.node[56].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 401  P2P_Wireless_Wifi.node[57].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 408  P2P_Wireless_Wifi.node[58].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 415  P2P_Wireless_Wifi.node[59].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 422  P2P_Wireless_Wifi.node[60].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 429  P2P_Wireless_Wifi.node[61].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 436  P2P_Wireless_Wifi.node[62].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 443  P2P_Wireless_Wifi.node[63].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 450  P2P_Wireless_Wifi.node[64].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 457  P2P_Wireless_Wifi.node[65].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 464  P2P_Wireless_Wifi.node[66].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 471  P2P_Wireless_Wifi.node[67].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 478  P2P_Wireless_Wifi.node[68].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 485  P2P_Wireless_Wifi.node[69].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 492  P2P_Wireless_Wifi.node[70].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 499  P2P_Wireless_Wifi.node[71].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 506  P2P_Wireless_Wifi.node[72].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 513  P2P_Wireless_Wifi.node[73].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 520  P2P_Wireless_Wifi.node[74].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 527  P2P_Wireless_Wifi.node[75].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 534  P2P_Wireless_Wifi.node[76].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 541  P2P_Wireless_Wifi.node[77].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 548  P2P_Wireless_Wifi.node[78].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 555  P2P_Wireless_Wifi.node[79].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 562  P2P_Wireless_Wifi.node[80].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 569  P2P_Wireless_Wifi.node[81].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 576  P2P_Wireless_Wifi.node[82].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 583  P2P_Wireless_Wifi.node[83].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 590  P2P_Wireless_Wifi.node[84].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 597  P2P_Wireless_Wifi.node[85].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 604  P2P_Wireless_Wifi.node[86].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 611  P2P_Wireless_Wifi.node[87].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 618  P2P_Wireless_Wifi.node[88].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 625  P2P_Wireless_Wifi.node[89].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 632  P2P_Wireless_Wifi.node[90].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 639  P2P_Wireless_Wifi.node[91].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 646  P2P_Wireless_Wifi.node[92].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 653  P2P_Wireless_Wifi.node[93].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 660  P2P_Wireless_Wifi.node[94].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 667  P2P_Wireless_Wifi.node[95].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 674  P2P_Wireless_Wifi.node[96].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 681  P2P_Wireless_Wifi.node[97].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 688  P2P_Wireless_Wifi.node[98].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 695  P2P_Wireless_Wifi.node[99].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 702  P2P_Wireless_Wifi.node[100].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 709  P2P_Wireless_Wifi.node[101].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 716  P2P_Wireless_Wifi.node[102].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 723  P2P_Wireless_Wifi.node[103].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 730  P2P_Wireless_Wifi.node[104].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 737  P2P_Wireless_Wifi.node[105].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 744  P2P_Wireless_Wifi.node[106].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 751  P2P_Wireless_Wifi.node[107].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 758  P2P_Wireless_Wifi.node[108].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 765  P2P_Wireless_Wifi.node[109].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 772  P2P_Wireless_Wifi.node[110].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 779  P2P_Wireless_Wifi.node[111].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 786  P2P_Wireless_Wifi.node[112].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 793  P2P_Wireless_Wifi.node[113].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 800  P2P_Wireless_Wifi.node[114].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 807  P2P_Wireless_Wifi.node[115].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 814  P2P_Wireless_Wifi.node[116].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 821  P2P_Wireless_Wifi.node[117].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 828  P2P_Wireless_Wifi.node[118].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 835  P2P_Wireless_Wifi.node[119].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 842  P2P_Wireless_Wifi.node[120].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 849  P2P_Wireless_Wifi.node[121].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 856  P2P_Wireless_Wifi.node[122].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 863  P2P_Wireless_Wifi.node[123].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 870  P2P_Wireless_Wifi.node[124].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 877  P2P_Wireless_Wifi.node[125].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 884  P2P_Wireless_Wifi.node[126].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 891  P2P_Wireless_Wifi.node[127].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 898  P2P_Wireless_Wifi.node[128].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 905  P2P_Wireless_Wifi.node[129].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 912  P2P_Wireless_Wifi.node[130].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 919  P2P_Wireless_Wifi.node[131].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 926  P2P_Wireless_Wifi.node[132].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 933  P2P_Wireless_Wifi.node[133].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 940  P2P_Wireless_Wifi.node[134].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 947  P2P_Wireless_Wifi.node[135].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 954  P2P_Wireless_Wifi.node[136].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 961  P2P_Wireless_Wifi.node[137].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 968  P2P_Wireless_Wifi.node[138].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 975  P2P_Wireless_Wifi.node[139].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 982  P2P_Wireless_Wifi.node[140].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 989  P2P_Wireless_Wifi.node[141].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 996  P2P_Wireless_Wifi.node[142].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1003  P2P_Wireless_Wifi.node[143].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1010  P2P_Wireless_Wifi.node[144].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1017  P2P_Wireless_Wifi.node[145].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1024  P2P_Wireless_Wifi.node[146].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1031  P2P_Wireless_Wifi.node[147].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1038  P2P_Wireless_Wifi.node[148].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1045  P2P_Wireless_Wifi.node[149].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1052  P2P_Wireless_Wifi.node[150].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1059  P2P_Wireless_Wifi.node[151].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1066  P2P_Wireless_Wifi.node[152].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1073  P2P_Wireless_Wifi.node[153].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1080  P2P_Wireless_Wifi.node[154].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1087  P2P_Wireless_Wifi.node[155].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1094  P2P_Wireless_Wifi.node[156].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1101  P2P_Wireless_Wifi.node[157].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1108  P2P_Wireless_Wifi.node[158].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1115  P2P_Wireless_Wifi.node[159].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1122  P2P_Wireless_Wifi.node[160].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1129  P2P_Wireless_Wifi.node[161].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1136  P2P_Wireless_Wifi.node[162].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1143  P2P_Wireless_Wifi.node[163].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1150  P2P_Wireless_Wifi.node[164].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1157  P2P_Wireless_Wifi.node[165].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1164  P2P_Wireless_Wifi.node[166].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1171  P2P_Wireless_Wifi.node[167].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1178  P2P_Wireless_Wifi.node[168].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1185  P2P_Wireless_Wifi.node[169].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1192  P2P_Wireless_Wifi.node[170].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1199  P2P_Wireless_Wifi.node[171].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1206  P2P_Wireless_Wifi.node[172].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1213  P2P_Wireless_Wifi.node[173].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1220  P2P_Wireless_Wifi.node[174].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1227  P2P_Wireless_Wifi.node[175].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1234  P2P_Wireless_Wifi.node[176].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1241  P2P_Wireless_Wifi.node[177].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1248  P2P_Wireless_Wifi.node[178].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1255  P2P_Wireless_Wifi.node[179].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1262  P2P_Wireless_Wifi.node[180].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1269  P2P_Wireless_Wifi.node[181].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1276  P2P_Wireless_Wifi.node[182].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1283  P2P_Wireless_Wifi.node[183].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1290  P2P_Wireless_Wifi.node[184].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1297  P2P_Wireless_Wifi.node[185].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1304  P2P_Wireless_Wifi.node[186].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1311  P2P_Wireless_Wifi.node[187].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1318  P2P_Wireless_Wifi.node[188].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1325  P2P_Wireless_Wifi.node[189].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1332  P2P_Wireless_Wifi.node[190].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1339  P2P_Wireless_Wifi.node[191].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1346  P2P_Wireless_Wifi.node[192].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1353  P2P_Wireless_Wifi.node[193].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1360  P2P_Wireless_Wifi.node[194].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1367  P2P_Wireless_Wifi.node[195].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1374  P2P_Wireless_Wifi.node[196].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1381  P2P_Wireless_Wifi.node[197].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1388  P2P_Wireless_Wifi.node[198].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1395  P2P_Wireless_Wifi.node[199].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1402  P2P_Wireless_Wifi.node[200].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1409  P2P_Wireless_Wifi.node[201].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1416  P2P_Wireless_Wifi.node[202].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1423  P2P_Wireless_Wifi.node[203].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1430  P2P_Wireless_Wifi.node[204].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1437  P2P_Wireless_Wifi.node[205].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1444  P2P_Wireless_Wifi.node[206].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1451  P2P_Wireless_Wifi.node[207].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1458  P2P_Wireless_Wifi.node[208].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1465  P2P_Wireless_Wifi.node[209].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1472  P2P_Wireless_Wifi.node[210].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1479  P2P_Wireless_Wifi.node[211].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1486  P2P_Wireless_Wifi.node[212].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1493  P2P_Wireless_Wifi.node[213].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1500  P2P_Wireless_Wifi.node[214].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1507  P2P_Wireless_Wifi.node[215].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1514  P2P_Wireless_Wifi.node[216].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1521  P2P_Wireless_Wifi.node[217].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1528  P2P_Wireless_Wifi.node[218].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1535  P2P_Wireless_Wifi.node[219].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1542  P2P_Wireless_Wifi.node[220].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1549  P2P_Wireless_Wifi.node[221].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1556  P2P_Wireless_Wifi.node[222].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1563  P2P_Wireless_Wifi.node[223].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1570  P2P_Wireless_Wifi.node[224].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1577  P2P_Wireless_Wifi.node[225].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1584  P2P_Wireless_Wifi.node[226].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1591  P2P_Wireless_Wifi.node[227].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1598  P2P_Wireless_Wifi.node[228].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1605  P2P_Wireless_Wifi.node[229].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1612  P2P_Wireless_Wifi.node[230].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1619  P2P_Wireless_Wifi.node[231].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1626  P2P_Wireless_Wifi.node[232].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1633  P2P_Wireless_Wifi.node[233].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1640  P2P_Wireless_Wifi.node[234].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1647  P2P_Wireless_Wifi.node[235].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1654  P2P_Wireless_Wifi.node[236].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1661  P2P_Wireless_Wifi.node[237].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1668  P2P_Wireless_Wifi.node[238].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1675  P2P_Wireless_Wifi.node[239].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1682  P2P_Wireless_Wifi.node[240].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1689  P2P_Wireless_Wifi.node[241].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1696  P2P_Wireless_Wifi.node[242].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1703  P2P_Wireless_Wifi.node[243].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1710  P2P_Wireless_Wifi.node[244].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1717  P2P_Wireless_Wifi.node[245].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1724  P2P_Wireless_Wifi.node[246].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1731  P2P_Wireless_Wifi.node[247].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1738  P2P_Wireless_Wifi.node[248].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1745  P2P_Wireless_Wifi.node[249].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1752  P2P_Wireless_Wifi.node[250].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1759  P2P_Wireless_Wifi.node[251].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1766  P2P_Wireless_Wifi.node[252].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1773  P2P_Wireless_Wifi.node[253].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1780  P2P_Wireless_Wifi.node[254].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1787  P2P_Wireless_Wifi.node[255].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1794  P2P_Wireless_Wifi.node[256].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1801  P2P_Wireless_Wifi.node[257].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1808  P2P_Wireless_Wifi.node[258].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1815  P2P_Wireless_Wifi.node[259].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1822  P2P_Wireless_Wifi.node[260].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1829  P2P_Wireless_Wifi.node[261].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1836  P2P_Wireless_Wifi.node[262].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1843  P2P_Wireless_Wifi.node[263].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1850  P2P_Wireless_Wifi.node[264].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1857  P2P_Wireless_Wifi.node[265].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1864  P2P_Wireless_Wifi.node[266].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1871  P2P_Wireless_Wifi.node[267].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1878  P2P_Wireless_Wifi.node[268].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1885  P2P_Wireless_Wifi.node[269].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1892  P2P_Wireless_Wifi.node[270].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1899  P2P_Wireless_Wifi.node[271].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1906  P2P_Wireless_Wifi.node[272].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1913  P2P_Wireless_Wifi.node[273].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1920  P2P_Wireless_Wifi.node[274].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1927  P2P_Wireless_Wifi.node[275].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1934  P2P_Wireless_Wifi.node[276].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1941  P2P_Wireless_Wifi.node[277].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1948  P2P_Wireless_Wifi.node[278].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1955  P2P_Wireless_Wifi.node[279].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1962  P2P_Wireless_Wifi.node[280].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1969  P2P_Wireless_Wifi.node[281].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1976  P2P_Wireless_Wifi.node[282].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1983  P2P_Wireless_Wifi.node[283].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1990  P2P_Wireless_Wifi.node[284].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 1997  P2P_Wireless_Wifi.node[285].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2004  P2P_Wireless_Wifi.node[286].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2011  P2P_Wireless_Wifi.node[287].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2018  P2P_Wireless_Wifi.node[288].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2025  P2P_Wireless_Wifi.node[289].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2032  P2P_Wireless_Wifi.node[290].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2039  P2P_Wireless_Wifi.node[291].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2046  P2P_Wireless_Wifi.node[292].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2053  P2P_Wireless_Wifi.node[293].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2060  P2P_Wireless_Wifi.node[294].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2067  P2P_Wireless_Wifi.node[295].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2074  P2P_Wireless_Wifi.node[296].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2081  P2P_Wireless_Wifi.node[297].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2088  P2P_Wireless_Wifi.node[298].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2095  P2P_Wireless_Wifi.node[299].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2102  P2P_Wireless_Wifi.node[300].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2109  P2P_Wireless_Wifi.node[301].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2116  P2P_Wireless_Wifi.node[302].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2123  P2P_Wireless_Wifi.node[303].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2130  P2P_Wireless_Wifi.node[304].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2137  P2P_Wireless_Wifi.node[305].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2144  P2P_Wireless_Wifi.node[306].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2151  P2P_Wireless_Wifi.node[307].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2158  P2P_Wireless_Wifi.node[308].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2165  P2P_Wireless_Wifi.node[309].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2172  P2P_Wireless_Wifi.node[310].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2179  P2P_Wireless_Wifi.node[311].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2186  P2P_Wireless_Wifi.node[312].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2193  P2P_Wireless_Wifi.node[313].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2200  P2P_Wireless_Wifi.node[314].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2207  P2P_Wireless_Wifi.node[315].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2214  P2P_Wireless_Wifi.node[316].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2221  P2P_Wireless_Wifi.node[317].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2228  P2P_Wireless_Wifi.node[318].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2235  P2P_Wireless_Wifi.node[319].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2242  P2P_Wireless_Wifi.node[320].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2249  P2P_Wireless_Wifi.node[321].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2256  P2P_Wireless_Wifi.node[322].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2263  P2P_Wireless_Wifi.node[323].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2270  P2P_Wireless_Wifi.node[324].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2277  P2P_Wireless_Wifi.node[325].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2284  P2P_Wireless_Wifi.node[326].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2291  P2P_Wireless_Wifi.node[327].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2298  P2P_Wireless_Wifi.node[328].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2305  P2P_Wireless_Wifi.node[329].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2312  P2P_Wireless_Wifi.node[330].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2319  P2P_Wireless_Wifi.node[331].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2326  P2P_Wireless_Wifi.node[332].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2333  P2P_Wireless_Wifi.node[333].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2340  P2P_Wireless_Wifi.node[334].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2347  P2P_Wireless_Wifi.node[335].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2354  P2P_Wireless_Wifi.node[336].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2361  P2P_Wireless_Wifi.node[337].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2368  P2P_Wireless_Wifi.node[338].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2375  P2P_Wireless_Wifi.node[339].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2382  P2P_Wireless_Wifi.node[340].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2389  P2P_Wireless_Wifi.node[341].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2396  P2P_Wireless_Wifi.node[342].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2403  P2P_Wireless_Wifi.node[343].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2410  P2P_Wireless_Wifi.node[344].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2417  P2P_Wireless_Wifi.node[345].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2424  P2P_Wireless_Wifi.node[346].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2431  P2P_Wireless_Wifi.node[347].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2438  P2P_Wireless_Wifi.node[348].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2445  P2P_Wireless_Wifi.node[349].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2452  P2P_Wireless_Wifi.node[350].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2459  P2P_Wireless_Wifi.node[351].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2466  P2P_Wireless_Wifi.node[352].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2473  P2P_Wireless_Wifi.node[353].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2480  P2P_Wireless_Wifi.node[354].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2487  P2P_Wireless_Wifi.node[355].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2494  P2P_Wireless_Wifi.node[356].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2501  P2P_Wireless_Wifi.node[357].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2508  P2P_Wireless_Wifi.node[358].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2515  P2P_Wireless_Wifi.node[359].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2522  P2P_Wireless_Wifi.node[360].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2529  P2P_Wireless_Wifi.node[361].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2536  P2P_Wireless_Wifi.node[362].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2543  P2P_Wireless_Wifi.node[363].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2550  P2P_Wireless_Wifi.node[364].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2557  P2P_Wireless_Wifi.node[365].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2564  P2P_Wireless_Wifi.node[366].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2571  P2P_Wireless_Wifi.node[367].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2578  P2P_Wireless_Wifi.node[368].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2585  P2P_Wireless_Wifi.node[369].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2592  P2P_Wireless_Wifi.node[370].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2599  P2P_Wireless_Wifi.node[371].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2606  P2P_Wireless_Wifi.node[372].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2613  P2P_Wireless_Wifi.node[373].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2620  P2P_Wireless_Wifi.node[374].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2627  P2P_Wireless_Wifi.node[375].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2634  P2P_Wireless_Wifi.node[376].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2641  P2P_Wireless_Wifi.node[377].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2648  P2P_Wireless_Wifi.node[378].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2655  P2P_Wireless_Wifi.node[379].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2662  P2P_Wireless_Wifi.node[380].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2669  P2P_Wireless_Wifi.node[381].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2676  P2P_Wireless_Wifi.node[382].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2683  P2P_Wireless_Wifi.node[383].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2690  P2P_Wireless_Wifi.node[384].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2697  P2P_Wireless_Wifi.node[385].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2704  P2P_Wireless_Wifi.node[386].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2711  P2P_Wireless_Wifi.node[387].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2718  P2P_Wireless_Wifi.node[388].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2725  P2P_Wireless_Wifi.node[389].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2732  P2P_Wireless_Wifi.node[390].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2739  P2P_Wireless_Wifi.node[391].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2746  P2P_Wireless_Wifi.node[392].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2753  P2P_Wireless_Wifi.node[393].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2760  P2P_Wireless_Wifi.node[394].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2767  P2P_Wireless_Wifi.node[395].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2774  P2P_Wireless_Wifi.node[396].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2781  P2P_Wireless_Wifi.node[397].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2788  P2P_Wireless_Wifi.node[398].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2795  P2P_Wireless_Wifi.node[399].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2802  P2P_Wireless_Wifi.node[400].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2809  P2P_Wireless_Wifi.node[401].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2816  P2P_Wireless_Wifi.node[402].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2823  P2P_Wireless_Wifi.node[403].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2830  P2P_Wireless_Wifi.node[404].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2837  P2P_Wireless_Wifi.node[405].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2844  P2P_Wireless_Wifi.node[406].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2851  P2P_Wireless_Wifi.node[407].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2858  P2P_Wireless_Wifi.node[408].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2865  P2P_Wireless_Wifi.node[409].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2872  P2P_Wireless_Wifi.node[410].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2879  P2P_Wireless_Wifi.node[411].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2886  P2P_Wireless_Wifi.node[412].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2893  P2P_Wireless_Wifi.node[413].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2900  P2P_Wireless_Wifi.node[414].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2907  P2P_Wireless_Wifi.node[415].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2914  P2P_Wireless_Wifi.node[416].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2921  P2P_Wireless_Wifi.node[417].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2928  P2P_Wireless_Wifi.node[418].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2935  P2P_Wireless_Wifi.node[419].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2942  P2P_Wireless_Wifi.node[420].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2949  P2P_Wireless_Wifi.node[421].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2956  P2P_Wireless_Wifi.node[422].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2963  P2P_Wireless_Wifi.node[423].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2970  P2P_Wireless_Wifi.node[424].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2977  P2P_Wireless_Wifi.node[425].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2984  P2P_Wireless_Wifi.node[426].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2991  P2P_Wireless_Wifi.node[427].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 2998  P2P_Wireless_Wifi.node[428].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3005  P2P_Wireless_Wifi.node[429].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3012  P2P_Wireless_Wifi.node[430].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3019  P2P_Wireless_Wifi.node[431].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3026  P2P_Wireless_Wifi.node[432].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3033  P2P_Wireless_Wifi.node[433].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3040  P2P_Wireless_Wifi.node[434].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3047  P2P_Wireless_Wifi.node[435].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3054  P2P_Wireless_Wifi.node[436].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3061  P2P_Wireless_Wifi.node[437].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3068  P2P_Wireless_Wifi.node[438].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3075  P2P_Wireless_Wifi.node[439].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3082  P2P_Wireless_Wifi.node[440].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3089  P2P_Wireless_Wifi.node[441].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3096  P2P_Wireless_Wifi.node[442].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3103  P2P_Wireless_Wifi.node[443].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3110  P2P_Wireless_Wifi.node[444].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3117  P2P_Wireless_Wifi.node[445].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3124  P2P_Wireless_Wifi.node[446].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3131  P2P_Wireless_Wifi.node[447].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3138  P2P_Wireless_Wifi.node[448].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3145  P2P_Wireless_Wifi.node[449].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3152  P2P_Wireless_Wifi.node[450].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3159  P2P_Wireless_Wifi.node[451].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3166  P2P_Wireless_Wifi.node[452].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3173  P2P_Wireless_Wifi.node[453].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3180  P2P_Wireless_Wifi.node[454].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3187  P2P_Wireless_Wifi.node[455].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3194  P2P_Wireless_Wifi.node[456].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3201  P2P_Wireless_Wifi.node[457].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3208  P2P_Wireless_Wifi.node[458].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3215  P2P_Wireless_Wifi.node[459].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3222  P2P_Wireless_Wifi.node[460].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3229  P2P_Wireless_Wifi.node[461].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3236  P2P_Wireless_Wifi.node[462].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3243  P2P_Wireless_Wifi.node[463].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3250  P2P_Wireless_Wifi.node[464].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3257  P2P_Wireless_Wifi.node[465].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3264  P2P_Wireless_Wifi.node[466].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3271  P2P_Wireless_Wifi.node[467].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3278  P2P_Wireless_Wifi.node[468].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3285  P2P_Wireless_Wifi.node[469].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3292  P2P_Wireless_Wifi.node[470].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3299  P2P_Wireless_Wifi.node[471].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3306  P2P_Wireless_Wifi.node[472].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3313  P2P_Wireless_Wifi.node[473].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3320  P2P_Wireless_Wifi.node[474].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3327  P2P_Wireless_Wifi.node[475].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3334  P2P_Wireless_Wifi.node[476].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3341  P2P_Wireless_Wifi.node[477].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3348  P2P_Wireless_Wifi.node[478].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3355  P2P_Wireless_Wifi.node[479].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3362  P2P_Wireless_Wifi.node[480].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3369  P2P_Wireless_Wifi.node[481].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3376  P2P_Wireless_Wifi.node[482].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3383  P2P_Wireless_Wifi.node[483].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3390  P2P_Wireless_Wifi.node[484].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3397  P2P_Wireless_Wifi.node[485].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3404  P2P_Wireless_Wifi.node[486].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3411  P2P_Wireless_Wifi.node[487].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3418  P2P_Wireless_Wifi.node[488].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3425  P2P_Wireless_Wifi.node[489].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3432  P2P_Wireless_Wifi.node[490].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3439  P2P_Wireless_Wifi.node[491].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3446  P2P_Wireless_Wifi.node[492].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3453  P2P_Wireless_Wifi.node[493].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3460  P2P_Wireless_Wifi.node[494].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3467  P2P_Wireless_Wifi.node[495].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3474  P2P_Wireless_Wifi.node[496].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3481  P2P_Wireless_Wifi.node[497].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3488  P2P_Wireless_Wifi.node[498].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3495  P2P_Wireless_Wifi.node[499].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3502  P2P_Wireless_Wifi.node[500].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3509  P2P_Wireless_Wifi.node[501].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3516  P2P_Wireless_Wifi.node[502].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3523  P2P_Wireless_Wifi.node[503].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3530  P2P_Wireless_Wifi.node[504].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3537  P2P_Wireless_Wifi.node[505].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3544  P2P_Wireless_Wifi.node[506].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3551  P2P_Wireless_Wifi.node[507].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3558  P2P_Wireless_Wifi.node[508].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3565  P2P_Wireless_Wifi.node[509].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3572  P2P_Wireless_Wifi.node[510].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3579  P2P_Wireless_Wifi.node[511].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3586  P2P_Wireless_Wifi.node[512].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3593  P2P_Wireless_Wifi.node[513].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3600  P2P_Wireless_Wifi.node[514].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3607  P2P_Wireless_Wifi.node[515].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3614  P2P_Wireless_Wifi.node[516].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3621  P2P_Wireless_Wifi.node[517].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3628  P2P_Wireless_Wifi.node[518].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3635  P2P_Wireless_Wifi.node[519].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3642  P2P_Wireless_Wifi.node[520].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3649  P2P_Wireless_Wifi.node[521].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3656  P2P_Wireless_Wifi.node[522].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3663  P2P_Wireless_Wifi.node[523].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3670  P2P_Wireless_Wifi.node[524].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3677  P2P_Wireless_Wifi.node[525].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3684  P2P_Wireless_Wifi.node[526].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3691  P2P_Wireless_Wifi.node[527].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3698  P2P_Wireless_Wifi.node[528].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3705  P2P_Wireless_Wifi.node[529].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3712  P2P_Wireless_Wifi.node[530].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3719  P2P_Wireless_Wifi.node[531].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3726  P2P_Wireless_Wifi.node[532].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3733  P2P_Wireless_Wifi.node[533].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3740  P2P_Wireless_Wifi.node[534].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3747  P2P_Wireless_Wifi.node[535].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3754  P2P_Wireless_Wifi.node[536].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3761  P2P_Wireless_Wifi.node[537].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3768  P2P_Wireless_Wifi.node[538].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3775  P2P_Wireless_Wifi.node[539].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3782  P2P_Wireless_Wifi.node[540].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3789  P2P_Wireless_Wifi.node[541].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3796  P2P_Wireless_Wifi.node[542].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3803  P2P_Wireless_Wifi.node[543].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3810  P2P_Wireless_Wifi.node[544].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3817  P2P_Wireless_Wifi.node[545].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3824  P2P_Wireless_Wifi.node[546].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3831  P2P_Wireless_Wifi.node[547].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3838  P2P_Wireless_Wifi.node[548].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3845  P2P_Wireless_Wifi.node[549].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3852  P2P_Wireless_Wifi.node[550].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3859  P2P_Wireless_Wifi.node[551].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3866  P2P_Wireless_Wifi.node[552].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3873  P2P_Wireless_Wifi.node[553].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3880  P2P_Wireless_Wifi.node[554].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3887  P2P_Wireless_Wifi.node[555].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3894  P2P_Wireless_Wifi.node[556].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3901  P2P_Wireless_Wifi.node[557].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3908  P2P_Wireless_Wifi.node[558].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3915  P2P_Wireless_Wifi.node[559].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3922  P2P_Wireless_Wifi.node[560].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3929  P2P_Wireless_Wifi.node[561].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3936  P2P_Wireless_Wifi.node[562].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3943  P2P_Wireless_Wifi.node[563].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3950  P2P_Wireless_Wifi.node[564].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3957  P2P_Wireless_Wifi.node[565].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3964  P2P_Wireless_Wifi.node[566].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3971  P2P_Wireless_Wifi.node[567].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3978  P2P_Wireless_Wifi.node[568].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3985  P2P_Wireless_Wifi.node[569].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3992  P2P_Wireless_Wifi.node[570].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 3999  P2P_Wireless_Wifi.node[571].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 4006  P2P_Wireless_Wifi.node[572].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 4013  P2P_Wireless_Wifi.node[573].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 4020  P2P_Wireless_Wifi.node[574].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 4027  P2P_Wireless_Wifi.node[575].batteryStats  capacity  ETV
+att

@@ -24,9 +24,34 @@
 #include "QueryReply_m.h"
 #include "LinearMobility.h"
 #include "QueryScore.h"
+#include "cqueue.h"
 
 extern int queryNodeNumber;
 class QueryScore;
+
+/* define a ReviewResult class */
+class ReviewResult : public cObject
+{
+  public:
+    ReviewResult() {};                                      //default constructor
+    ReviewResult(unsigned int x, double y) { hashValue = x; score = y; }    //constructor
+    ReviewResult(const ReviewResult *other){this->hashValue = other->hashValue; this->score = other->hashValue;}
+    ReviewResult(const ReviewResult& other){operator=(other);}
+    ReviewResult& operator=(const ReviewResult& other) {
+        if (&other==this) return *this;
+        hashValue = other.getHashValue();
+        score = other.getScore();
+        return *this;}
+  //bool operator<(const ReviewResult& right) const {return score < right.score;}              //overloaded < operator
+
+
+    unsigned int getHashValue() const { return hashValue; }             //accessor methods
+    int getScore() const { return score; }
+
+  private:
+    unsigned int hashValue;                                 //data fields
+    double score;
+};
 
 class MyApplicationLayer: public BaseApplLayer {
 public:
@@ -66,6 +91,7 @@ public:
     int querySendRounds; // Counter for how many query rounds
 
     int successfulQuery;
+    int cacheSize;
 
 private:
 
@@ -119,6 +145,8 @@ private:
     std::fstream oKeywords; // For query keywords
     std::fstream oReview;
 
+    cQueue resultSet; // a result map of hash value and score
+
 protected:
     /** @brief Timer message for scheduling next message.*/
     cMessage *delayTimer;
@@ -160,6 +188,8 @@ protected:
     QueryReply* setQueryReplyMessage(QueryReply*, Query*);
 
     void printReceivedQueryMessage(Query*);
+
+    static int distanceComp(cObject* one, cObject* another);
 };
 
 #endif /* MYAPPLICATIONLAYER_H_ */

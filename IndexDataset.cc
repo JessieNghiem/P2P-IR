@@ -158,14 +158,14 @@ void IndexDataset::writeFile(map<string, Lexicon>& lexicon, map<unsigned int, Do
 	ofstream invlistsFile(invlistsFilePath);
 	ofstream docmapFile(docMapFilePath);
 
-	cout<<"Write map start"<<endl;
+	//cout<<"Write map start"<<endl;
 	for (map<unsigned int, Document>::iterator it = docMap.begin(); it != docMap.end(); it++) {
 			string content = to_string(it->second.docNo) + " " + to_string(it->second.docOffset) + "\n";
 			docmapFile<<content;
 	}
-	cout<<"Write map end"<<endl<<endl;
+	//cout<<"Write map end"<<endl<<endl;
 	
-	cout<<"Write lexicon and invlists start"<<endl;
+	//cout<<"Write lexicon and invlists start"<<endl;
 	int offset = 0;	//Calculate the term position in invert list file
 	for(map<string, Lexicon>::iterator it = lexicon.begin(); it != lexicon.end(); it++) {
 		//Write document frequency
@@ -187,7 +187,7 @@ void IndexDataset::writeFile(map<string, Lexicon>& lexicon, map<unsigned int, Do
 		lexiconFile<<content<<endl;
 		offset = offset + (num * 2 + 1) * sizeof(unsigned int);
 	}
-	cout<<"Write lexicon and invlists end"<<endl;
+	//cout<<"Write lexicon and invlists end"<<endl;
 	
 	lexiconFile.close();
 	invlistsFile.close();

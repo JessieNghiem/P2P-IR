@@ -1,0 +1,27 @@
+file 7839 1462889129                                            
+version 2
+run ThreeNodes-0-20160511-00:05:29-1860
+attr configname ThreeNodes
+attr datetime 20160511-00:05:29
+attr experiment ThreeNodes
+attr inifile omnetpp.ini
+attr iterationvars $0=0
+attr iterationvars2 "$0=0, $repetition=0"
+attr measurement $0=0
+attr network P2P_Wireless_Wifi
+attr processid 1860
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 2  P2P_Wireless_Wifi.node[0].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 9  P2P_Wireless_Wifi.node[1].batteryStats  capacity  ETV
+attr unit  mW-s
+vector 16  P2P_Wireless_Wifi.node[2].batteryStats  capacity  ETV
+attr unit  mW-s
+2	635 2315 0 3138 0 99 101 2100601.98246 2160000 215190153.41872 4.585140576317e+14
+9	2950 2394 0 3139 0 99 101 2100602.237952 2160000 215190178.91659 4.5851416620473e+14
+16	5344 2495 0 3140 0 99 101 2100602.276304 2160000 215190175.25228 4.5851415031786e+14

@@ -29,6 +29,7 @@
 #include "ExtractDataset.h"
 #include "Index.h"
 #include "IndexDataset.h"
+#include <set>
 
 using namespace std;
 Define_Module(MyApplicationLayer);
@@ -79,6 +80,7 @@ void MyApplicationLayer::initialize(int stage) {
         srcAddress = getNode()->getId();
 
         node_id = myApplAddr();
+        cacheSize = par("cacheSize");
 
         // Initial beacon message rules
         querySendRounds = 0;
@@ -101,20 +103,15 @@ void MyApplicationLayer::initialize(int stage) {
             } // otherwise use the default MAX_SIM_TIME value
 
             // assume that we have max_sim_time value, now calculate no of queries N coming to this node as a poisson random number
-            queryTimes = poisson(lamda * simulationTime);
+            queryTimes = poisson(lamda * simulationTime,1);
 
             if (queryTimes < 0) {
                 queryTimes = 0;
             }
 
-            EV << "Total query times of this node: " << queryTimes << std::endl;
+            cout << "Total query times of this node: " << queryTimes << std::endl;
 
-            if (querySendRounds < queryTimes) { // query send round is not reached query times, send beacon to query
-                delayTimer = new cMessage("delay-timer", SEND_BEACON_TIMER);
-                scheduleAt(simTime() + uniform(0, 1) * QUERY_FREQUENCY,
-                        delayTimer);
-                queryNodeNumber++;
-            }
+
         }
         // Register the finish signal
         finishSignal = registerSignal("finish");
@@ -132,6 +129,8 @@ void MyApplicationLayer::initialize(int stage) {
         successfulQuery = 0;
         numSendPackage = 0;
         numReceivePackage = 0;
+
+        resultSet.setup(&distanceComp);
 
         // Set indexing file path
         //std::string dataPath = MAIN_INDEXING_PATH + std::to_string(node_id)
@@ -161,7 +160,8 @@ void MyApplicationLayer::initialize(int stage) {
                 //extract k review from
                 //if (!std::ifstream(jsonFilePath)) {
                     Coord curPos = (FindModule<LinearMobility*>::findSubModule(getParentModule())->getCurrentPosition());
-                    extractMessage.extractKNN(MAX_CACHED_REVIEW, DATA_PATH, jsonFilePath, curPos);
+                    //extractMessage.extractKNN(MAX_CACHED_REVIEW, DATA_PATH, jsonFilePath, curPos);
+                    extractMessage.extractKNN(cacheSize, DATA_PATH, jsonFilePath, curPos);
                 //}
 
                 // if there is no index file, create index files
@@ -174,7 +174,7 @@ void MyApplicationLayer::initialize(int stage) {
 
                     IndexDataset indexDataset;
                     indexDataset.readStopList(STOP_LIST_PATH);
-                    cout<<indexDataset.stopList.size()<<endl;
+                    //cout<<indexDataset.stopList.size()<<endl;
 
                     std::map<unsigned int, Document> docMap;
 
@@ -210,6 +210,16 @@ void MyApplicationLayer::initialize(int stage) {
 
 
         emit(querySendRound, queryTimes);
+
+        if (querySendRounds < queryTimes) { // query send round is not reached query times, send beacon to query
+            delayTimer = new cMessage("delay-timer", SEND_BEACON_TIMER);
+            //clear the result set
+            while( !resultSet.empty() ) resultSet.pop();
+            querySendRounds++;
+            scheduleAt(simTime() + uniform(0, 1) * QUERY_FREQUENCY,
+                    delayTimer);
+            queryNodeNumber++;
+        }
         //scheduleAt(simTime() + dblrand() * 10, delayTimer);
     }
     EV << "Finish initialized" << std::endl;
@@ -234,12 +244,29 @@ void MyApplicationLayer::handleQueryExpiredTimer() {
 
     // Record query successful rate
     if (numSendPackage != 0) {
-        oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
-                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+        /*oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;*/
         /*if (querySendRounds == 1) {
             oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                         << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
         }*/
+
+        if (querySendRounds == 1) {
+            //oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+            //                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
+            //loop through the queue to extract hash value
+            set<unsigned int> rr;
+            while (!resultSet.empty()) {
+                ReviewResult *item = (ReviewResult *)resultSet.pop();
+                 rr.insert(item->getHashValue());
+            }
+            std::set<unsigned int>::iterator it;
+            for (it = rr.begin(); it != rr.end(); ++it)
+            {
+                oReview << *it<<endl;
+            }
+        }
 
         double querySuccessfulRate = numReceivePackage / numSendPackage;
         emit(roundFinish, querySuccessfulRate);
@@ -275,10 +302,14 @@ void MyApplicationLayer::handleQueryExpiredTimer() {
         // This round has been finished, start next query round
         if (!delayTimer) {
             delayTimer = new cMessage("delay-timer", SEND_BEACON_TIMER);
+            querySendRounds++;
+            while( !resultSet.empty() ) resultSet.pop();
             scheduleAt(simTime() + QUERY_FREQUENCY * uniform(0, 1), delayTimer);
         } else {
             cancelAndDelete(delayTimer);
             delayTimer = new cMessage("delay-timer", SEND_BEACON_TIMER);
+            while( !resultSet.empty() ) resultSet.pop();
+            querySendRounds++;
             scheduleAt(simTime() + QUERY_FREQUENCY * uniform(0, 1), delayTimer);
         }
     } else {
@@ -313,7 +344,7 @@ void MyApplicationLayer::handleSelfMsg(cMessage *msg) {
         break;
     default:
         EV << "Unknown selfmessage! ->, kind: " << msg->getKind() << std::endl;
-        //delete msg;
+        delete msg;
         break;
     }
 }
@@ -352,8 +383,8 @@ void MyApplicationLayer::sendBeacon() {
     }
 
     EV << "Node :" << beaconMessage->getSrcAddr()
-              << " send broadcast beacon message" << std::endl;
-    coreEV << "Sending Beacon packet!" << endl;
+             << " send broadcast beacon message" << std::endl;
+    //coreEV << "Sending Beacon packet!" << endl;
 
     // Set start timer
     startTime = simTime();
@@ -361,7 +392,7 @@ void MyApplicationLayer::sendBeacon() {
     beaconMessage->setTimeStamp(simTime());
 
     // Add one round
-    querySendRounds++;
+    //querySendRounds++;
     // Record beacon send number
     beaconSendNumber++;
     emit(beaconSend, beaconSendNumber);
@@ -418,8 +449,8 @@ void MyApplicationLayer::handleBeaconReplyMessage(BeaconReply* msg) {
     if (beaconExpiredTimer) {
         cancelAndDelete(beaconExpiredTimer); // Existed previous timer, cancle and delete because receive at least one beacon reply message
         beaconExpiredTimer = NULL;  // Restore pointer to NULL
-        EV << "After delete beacon expired timer, point to: "
-                  << beaconExpiredTimer << std::endl;
+        //EV << "After delete beacon expired timer, point to: "
+        //          << beaconExpiredTimer << std::endl;
 
         // Record beacon reply receive
         beaconReceiveNumber++;
@@ -434,10 +465,10 @@ void MyApplicationLayer::handleBeaconReplyMessage(BeaconReply* msg) {
         queryPeerList->push(msg->getSrcAddr());
     } else {
         EV << "Error: query peer list is null, cannot add peer!" << std::endl;
-    }
+   }
 
-    EV << "Add peer to query peer list, queue size: " << queryPeerList->size()
-              << std::endl;
+    //EV << "Add peer to query peer list, queue size: " << queryPeerList->size()
+    //          << std::endl;
     m.unlock();
 
     // Send the query message
@@ -445,18 +476,18 @@ void MyApplicationLayer::handleBeaconReplyMessage(BeaconReply* msg) {
 }
 
 void MyApplicationLayer::handleQueryMessage(Query* msg) {
-    EV << "Node: " << srcAddress << " receive query message from node: "
-              << msg->getSrcAddr() << std::endl;
+    //EV << "Node: " << srcAddress << " receive query message from node: "
+     //         << msg->getSrcAddr() << std::endl;
 
     // Record the latency time
     simtime_t latency = simTime() - msg->getTimeStamp();
     emit(reply, latency);
-    EV << "Latency: " << latency << std::endl;
+    //EV << "Latency: " << latency << std::endl;
 
     QueryReply* queryReplyMessage = new QueryReply("QUERY_REPLY_MESSAGE",
             QUERY_REPLY_MESSAGE);
 
-    printReceivedQueryMessage(msg);
+    //printReceivedQueryMessage(msg);
 
     setQueryReplyMessage(queryReplyMessage, msg);
 
@@ -482,14 +513,15 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
     simtime_t latency = simTime() - msg->getTimeStamp();
     emit(reply, latency);
 
-    EV << "**********************Query reply results start******************"
-              << std::endl;
+    /*EV << "**********************Query reply results start******************"
+              << std::endl;*/
 
     // Test for print result
     std::vector<QueryReplyMessage>::iterator it =
             msg->getReplyBusinesses().begin();
     int cnt = 1;
     for (; it != msg->getReplyBusinesses().end(); it++) {
+        /*//to make it run faster, omit printing to oResult
         oResult << "business No." << cnt << ":" << std::endl;
         oResult << "Result start: " << std::endl;
         oResult << "Business name: " << it->businessName << std::endl;
@@ -504,15 +536,36 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
                 << " longitude: " << it->businessLocation.x << std::endl;
         oResult << "Hash value: " << it->hashValue << std::endl;
         oResult << "*******************end*******************" << std::endl
-                << std::endl;
+                << std::endl;*/
 
         if (querySendRounds == 1) {
             oObjectResult <<it->businessId<< std::endl;
-            oReview <<it->hashValue<< std::endl;
+
+            //oReview <<it->hashValue<< std::endl;
+
+            //check for duplication
+            bool dupl = false;
+            for (cQueue::Iterator iter(resultSet); !iter.end(); iter++)
+            {
+              unsigned int h = ((ReviewResult*) iter())->getHashValue();
+              if (it->hashValue == h)
+                  dupl = true;
+            }
+            if (dupl==false)
+                resultSet.insert(new ReviewResult(it->hashValue, it->score));
         }
 
         cnt++;
     }
+    /*if (querySendRounds == 1) {
+        cout<<"review result set: "<<endl;
+        for (cQueue::Iterator iter(resultSet); !iter.end(); iter++)
+        {
+            unsigned int h = ((ReviewResult*) iter())->getHashValue();
+            cout<<h<<endl;
+        }
+    }*/
+
     EV << "**********************Query reply results finish******************"
               << std::endl;
 
@@ -528,19 +581,31 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             emit(queryFinish, queryTime);
             firstQuery = true;
 
-            oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
-                    << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+            /*oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                    << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;*/
 
-            /*if (querySendRounds == 1) {
-                oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
-                                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
-            }*/
+            if (querySendRounds == 1) {
+                //oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                //                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
+                //loop through the queue to extract hash value
+                set<unsigned int> rr;
+                while (!resultSet.empty()) {
+                    ReviewResult *item = (ReviewResult *)resultSet.pop();
+                    rr.insert(item->getHashValue());
+                }
+                std::set<unsigned int>::iterator it;
+                for (it = rr.begin(); it != rr.end(); ++it)
+                {
+                    oReview << *it<<endl;
+                }
+            }
 
             if (queryExpiredTimer) {
                 cancelAndDelete(queryExpiredTimer); // Existed previous timer, cancle and delete because receive one beacon reply message
                 queryExpiredTimer = NULL;   // Restore pointer to null
-                EV << "After delete query expired timer, point to: "
-                          << queryExpiredTimer << std::endl;
+                //EV << "After delete query expired timer, point to: "
+                //          << queryExpiredTimer << std::endl;
             } else {
                 EV << "Already delete previous send query expired timer"
                           << std::endl;
@@ -557,8 +622,8 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             double querySuccessfulRate = numReceivePackage / numSendPackage;
             emit(roundFinish, querySuccessfulRate);
 
-            EV << "After received query reply: Initial query node number: "
-                      << queryNodeNumber << std::endl;
+            //EV << "After received query reply: Initial query node number: "
+            //          << queryNodeNumber << std::endl;
             if (queryNodeNumber == 0) {
                 // Finish the simulation
                 // endSimulation();
@@ -568,9 +633,25 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             emit(queryFinish, queryTime);
             firstQuery = true;
 
-            oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
-                    << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+            //oResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+             //       << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
 
+            if (querySendRounds == 1) {
+                //oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
+                //                << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;
+
+                //loop through the queue to extract hash value
+                set<unsigned int> rr;
+                while (!resultSet.empty()) {
+                    ReviewResult *item = (ReviewResult *)resultSet.pop();
+                    rr.insert(item->getHashValue());
+                }
+                std::set<unsigned int>::iterator it;
+                for (it = rr.begin(); it != rr.end(); ++it)
+                {
+                    oReview << *it<<endl;
+                }
+            }
             /*if (querySendRounds == 1)
             oObjectResult << "$$$$$$$$$$$$$$ROUND " << querySendRounds
                                 << " FINISHED&&&&&&&&&&&&&&" << std::endl << std::endl;*/
@@ -578,8 +659,8 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             if (queryExpiredTimer) {
                 cancelAndDelete(queryExpiredTimer); // Existed previous timer, cancle and delete because receive one beacon reply message
                 queryExpiredTimer = NULL;   // Restore pointer to null
-                EV << "After delete query expired timer, point to: "
-                          << queryExpiredTimer << std::endl;
+                //EV << "After delete query expired timer, point to: "
+                //          << queryExpiredTimer << std::endl;
             } else {
                 EV << "Already delete previous send query expired timer"
                           << std::endl;
@@ -588,11 +669,15 @@ void MyApplicationLayer::handleQueryReplyMessage(QueryReply* msg) {
             // This round has been finished, start next query round
             if (!delayTimer) {
                 delayTimer = new cMessage("delay-timer", SEND_BEACON_TIMER);
+                while( !resultSet.empty() ) resultSet.pop();
+                querySendRounds++;
                 scheduleAt(simTime() + QUERY_FREQUENCY * uniform(0, 1),
                         delayTimer);
             } else {
                 cancelAndDelete(delayTimer);
                 delayTimer = new cMessage("delay-timer", SEND_BEACON_TIMER);
+                while( !resultSet.empty() ) resultSet.pop();
+                querySendRounds++;
                 scheduleAt(simTime() + QUERY_FREQUENCY * uniform(0, 1),
                         delayTimer);
             }
@@ -627,12 +712,13 @@ void MyApplicationLayer::sendBeaconReply(BeaconReply* beaconReplyMessage) {
     NetwControlInfo::setControlInfo(beaconReplyMessage,
             beaconReplyMessage->getDestAddr());
 
-    EV << "Send beacon reply from Node :" << beaconReplyMessage->getSrcAddr()
+    /*EV << "Send beacon reply from Node :" << beaconReplyMessage->getSrcAddr()
               << std::endl;
     EV << "Send beacon reply to Node: " << beaconReplyMessage->getDestAddr()
               << std::endl;
 
     coreEV << "Sending Beacon reply packet!" << endl;
+    */
     sendDown(beaconReplyMessage);
 }
 
@@ -686,11 +772,11 @@ void MyApplicationLayer::sendQuery(LAddress::L3Type& destAddr) {
                 SEND_QUERY_EXPIRED_TIMER);
         scheduleAt(simTime() + MESSAGE_EXPIRE_TIME, queryExpiredTimer); // Add the expired timer into schedule
     } else { // Already existed a expired timer, delete previous and set a new one
-        EV << "Error: Already existed query expired timer!" << std::endl;
+        //EV << "Error: Already existed query expired timer!" << std::endl;
         cancelAndDelete(queryExpiredTimer);  // Cancel and delete previous timer
         queryExpiredTimer = NULL;
-        EV << "Cancel the previous query timer and set a new timer at time: "
-                  << simTime() << std::endl;
+        //EV << "Cancel the previous query timer and set a new timer at time: "
+         //         << simTime() << std::endl;
         queryExpiredTimer = new cMessage("Expired Timer",
                 SEND_QUERY_EXPIRED_TIMER);   // Set a new timer
         scheduleAt(simTime() + MESSAGE_EXPIRE_TIME, queryExpiredTimer); // Add the expired timer into schedule
@@ -704,10 +790,10 @@ void MyApplicationLayer::sendQuery(LAddress::L3Type& destAddr) {
         firstQuery = false;
     }
 
-    EV << "Node: " << queryMessage->getSrcAddr()
+    /*EV << "Node: " << queryMessage->getSrcAddr()
               << " send query message to node: " << queryMessage->getDestAddr()
               << std::endl;
-    coreEV << "Sending Query packet!" << endl;
+    coreEV << "Sending Query packet!" << endl;*/
     sendDown(queryMessage);
     //delete(queryMessage);
 }
@@ -723,23 +809,23 @@ void MyApplicationLayer::sendQueryReply(QueryReply* queryReplyMessage) {
     NetwControlInfo::setControlInfo(queryReplyMessage,
             queryReplyMessage->getDestAddr());
 
-    EV << "Node: " << queryReplyMessage->getSrcAddr()
+    /*EV << "Node: " << queryReplyMessage->getSrcAddr()
               << " send query reply message to node: "
               << queryReplyMessage->getDestAddr() << std::endl;
 
-    coreEV << "Sending Query reply packet!" << endl;
+    coreEV << "Sending Query reply packet!" << endl;*/
     sendDown(queryReplyMessage);
 }
 
 void MyApplicationLayer::handleLowerMsg(cMessage* msg) {
     switch (msg->getKind()) {
     case BEACON_MESSAGE:
-        EV << "Receive beacon signal" << std::endl;
+        //EV << "Receive beacon signal" << std::endl;
         handleBeaconMessage(static_cast<Beacon*>(msg));
         delete msg;
         break;
     case BEACON_REPLY_MESSAGE:
-        EV << "Receive beacon reply signal" << std::endl;
+        //EV << "Receive beacon reply signal" << std::endl;
         handleBeaconReplyMessage(static_cast<BeaconReply*>(msg));
         delete msg;
         break;
@@ -793,7 +879,7 @@ QueryReply* MyApplicationLayer::setQueryReplyMessage(
 //    mQueryReply.textReview = (MyApplicationLayer::extractMessage.businessList.begin()->second).textReview;
     //}
 //    queryReplyMessage->getReplyBusinesses().push_back(mQueryReply);
-    EV << "Set query reply message end" << std::endl;
+    //EV << "Set query reply message end" << std::endl;
     return queryReplyMessage;
 }
 
@@ -814,4 +900,19 @@ void MyApplicationLayer::printReceivedQueryMessage(Query* msg) {
     EV << "Max range: " << msg->getMaxRange() << "m" << std::endl;
     EV << "Received query message end" << std::endl;
     return;
+}
+
+int MyApplicationLayer::distanceComp(cObject* one, cObject* another)
+{
+    ReviewResult* object1 = static_cast<ReviewResult*>(one);
+    ReviewResult* object2 = static_cast<ReviewResult*>(another);
+
+    double score1 = object1->getScore();
+    double score2 = object2->getScore();
+    if (score1 > score2)
+        return 1;
+    else if (score1 == score2)
+        return 0;
+    else
+        return -1;
 }
